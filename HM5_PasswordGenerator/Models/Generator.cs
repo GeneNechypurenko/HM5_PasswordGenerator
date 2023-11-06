@@ -23,6 +23,21 @@ namespace HM5_PasswordGenerator.Models
         }
         public bool[] Options { get; private set; }
 
+        public string GenerateCustom(string pattern)
+        {
+            StringBuilder password = new(pattern.Length);
+            Random rnd = new Random();
+
+            while (pattern.Length > 0)
+            {
+                int j = rnd.Next(pattern.Length);
+                char c = pattern[j];
+                password.Append(c);
+                pattern = pattern.Remove(j, 1);
+            }
+
+            return password.ToString();
+        }
         public string Generate()
         {
             string password = Options[4] ? ExcludeRepetitions() : IncludeRepetitions();
@@ -59,7 +74,7 @@ namespace HM5_PasswordGenerator.Models
                             break;
                         }
                 }
-                if (password.Length > 1)
+                if (password.Length > 4)
                 {
                     char c = password[password.Length - 1];
                     for (int j = 0; j < password.Length - 1; ++j)

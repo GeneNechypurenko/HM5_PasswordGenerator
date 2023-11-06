@@ -149,6 +149,7 @@
             InputTextBox.Name = "InputTextBox";
             InputTextBox.Size = new Size(260, 30);
             InputTextBox.TabIndex = 4;
+            InputTextBox.TextChanged += InputTextBox_TextChanged;
             // 
             // label3
             // 
@@ -209,6 +210,7 @@
             PasswordsListBox.Name = "PasswordsListBox";
             PasswordsListBox.Size = new Size(260, 441);
             PasswordsListBox.TabIndex = 1;
+            PasswordsListBox.KeyDown += PasswordsListBox_KeyDown;
             // 
             // label4
             // 
